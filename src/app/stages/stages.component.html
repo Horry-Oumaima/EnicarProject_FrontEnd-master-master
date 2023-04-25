@@ -1,0 +1,27 @@
+<p>stages works!</p>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Liste des stages</div>
+        <div class="panel-body">
+        <button class="btn btn-primary" (click)="onGetStage()">Stages</button>
+    </div>
+    <div class="panel-body">
+        <table *ngIf="students">
+            <tr>
+                <th>Id</th>
+                <th>nom</th>
+                <th>prenom</th>
+                <th>mail</th>
+            </tr>
+            <tr *ngFor="let s of students">
+                <td>{{s.idStudent}}</td>
+                <td>{{s.nomStudent}}</td>
+                <td>{{s.prenomStudent}}</td>
+                <td>{{s.mailStudent}}</td>
+
+
+            </tr>
+        </table>
+    </div>
+    </div>
+</div>

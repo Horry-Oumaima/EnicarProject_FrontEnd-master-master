@@ -1,0 +1,16 @@
+<!--div class="login">
+    <h1>Login</h1>
+    <form (submit)="onSubmit()">
+      <input type="text" name="username" [(ngModel)]="username" placeholder="Username">
+      <input type="password" name="password" [(ngModel)]="password" placeholder="Password">
+      <p *ngIf="message">{{ message }}</p>
+      <button type="submit">Login</button>
+    </form>
+  </div-->
+<div class="login">
+  <form  (submit)="onSubmit()">
+    <input type="email"  placeholder="Email">
+    <input type="password"  placeholder="Password">
+    <button type="submit">Login</button>
+</form>
+</div>

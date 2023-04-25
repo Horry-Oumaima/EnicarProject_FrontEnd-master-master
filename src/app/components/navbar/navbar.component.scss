@@ -1,0 +1,9 @@
+.cursor{
+  cursor: pointer;
+}
+
+#navb {
+  display: flex; /* active la flexbox */
+  justify-content: flex-start; /* centre les éléments horizontalement */
+ // align-items: center; /* centre les éléments verticalement */
+}

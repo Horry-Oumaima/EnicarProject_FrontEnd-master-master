@@ -1,0 +1,27 @@
+<div class="container">
+    <p></p>
+    <div class="row">
+      <div class="col-6 offset-3">
+        <h4>Modifier</h4>
+        <div class="card" style="background-color:aliceblue;">
+          <div class="card-body" *ngIf="project">
+            <form #f="ngForm" (ngSubmit)="EditProduct(f.value)">
+              <div class="form-group">
+                <label for="sujet">Sujet</label>
+                <input ngModel [(ngModel)]="project.sujet" placeholder="Sujet" type="text" name="sujet" id="sujet" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="description">description</label>
+                <input ngModel [(ngModel)]="project.description"  placeholder="Description" type="text" name="description" id="description" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="specialtite">specialite</label>
+                <input ngModel [(ngModel)]="project.specialtite"  placeholder="Specialtite" type="text" name="specialtite" id="specialtite" class="form-control">
+              </div>
+              <button class="btn btn-sm btn-primary">Valider</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

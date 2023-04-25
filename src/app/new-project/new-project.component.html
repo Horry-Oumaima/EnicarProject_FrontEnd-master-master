@@ -1,0 +1,67 @@
+
+
+<div class="container">
+    <p></p>
+    <div class="row">
+    <div class="col-4">
+    <div class="card" style="background-color:aliceblue;">
+      <div class="card-body">
+          <form #f="ngForm" (ngSubmit)="saveProduct(f.value)">
+          <div class="form-group">
+                <label for="sujet">Sujet</label>
+                <input ngModel placeholder="Sujet" type="text" name="sujet" id="sujet" class="form-control">
+              </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input ngModel placeholder="Description" type="text" name="description" id="description" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="specialtite">Specialite</label>
+              <input ngModel placeholder="specialtite" type="text" name="specialtite" id="specialtite" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="category">Filtre par categorie</label>
+              <select *ngIf="categories"  class="form-control" ngModel  name="category" id="category">
+                <option value="">----------</option>
+                <option *ngFor="let c of categories._embedded.catProjects" value="{{c.id}}">{{c.designation}}</option>
+              </select>
+            </div>
+            <button class="btn btn-sm btn-primary">Ajouter</button>
+          </form>
+        </div>
+    </div>
+    </div>
+    <div class="col-8">
+      <div class="card" >
+        <div class="card-body" >
+          <h4 *ngIf="products" class="card-title">Liste de Projets</h4>
+            <table class="table table-hover" *ngIf="products">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Sujet</th>
+                <th scope="col">Description</th>
+                <th scope="col">specialtite</th>
+                <!--<th scope="col">Action</th>-->
+              </tr>
+              </thead>
+              <tbody *ngIf="products">
+                <tr *ngFor="let p of products._embedded.projects">
+                  <th scope="row">{{p.id}}</th>
+                  <td>{{p.sujet}}</td>
+                  <td>{{p.description}}</td>
+                  <td>{{p.specialtite}}</td>
+                  <!--<td><a routerLink="/projects/{{p.id}}">edit</a></td>-->
+               </tr>
+              </tbody>
+            </table>
+            <ul *ngIf="pages" class="pagination">
+              <li *ngFor="let p of pages; let i=index" class="page-link " [ngClass]=" i == currentPage ? 'active' :''">
+                <a class="clickable" (click)="onProductPage(i)"> {{i}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
